@@ -1,44 +1,56 @@
 package com.juansenen.Museum.controller;
 
-import com.juansenen.Museum.model.ObjectsByID;
-import com.juansenen.Museum.task.DataTask;
-import javafx.collections.FXCollections;
-import javafx.concurrent.WorkerStateEvent;
+import com.juansenen.Museum.model.Departments;
+import com.juansenen.Museum.service.MuseumMetropolitanService;
+import io.reactivex.Observable;
+import io.reactivex.schedulers.Schedulers;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.apache.logging.log4j.core.util.JsonUtils;
 
+import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.Executors;
 
 public class AppController implements Initializable {
 
-    public TableView<ObjectsByID> dataTable;
+    public TableView<Departments> dataTable;
+    public Label labelTotal;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         prepareTableView();
+        setTotal();
 
     }
     private void prepareTableView() {
-        TableColumn<ObjectsByID, String> accessionColum = new TableColumn<>("Numero Adquisición");
-        accessionColum.setCellValueFactory(new PropertyValueFactory<>("accessionNumber"));
-        TableColumn<ObjectsByID, String> yearColumn = new TableColumn<>("Año adquisición");
-        yearColumn.setCellValueFactory(new PropertyValueFactory<>("accessionYear"));
-        TableColumn<ObjectsByID, Integer> objectIdColumn = new TableColumn<>("ID");
-        objectIdColumn.setCellValueFactory(new PropertyValueFactory<>("objectID"));
-        // TODO Add as many columns as you need
+        TableColumn<Departments, Integer> totalColum = new TableColumn<>("Total");
+        totalColum.setCellValueFactory(new PropertyValueFactory<>("total"));
 
-        dataTable.getColumns().add(accessionColum);
-        dataTable.getColumns().add(yearColumn);
-        dataTable.getColumns().add(objectIdColumn);
+
+        dataTable.getColumns().add(totalColum);
 
         dataTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
-    private void loadData() {
+    public void setTotal(){
+        MuseumMetropolitanService api = new MuseumMetropolitanService();
+        try {
+            api.getAll()
+                    .flatMap(Observable::fromArray)
+                    .doOnComplete(() -> System.out.println("LISTADO DE TODOS"))
+                    .doOnError(throwable -> System.out.println(throwable.getMessage()))
+                    .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
+                    .subscribe(System.out::println);
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
+
+
 }

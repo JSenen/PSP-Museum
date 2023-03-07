@@ -1,19 +1,16 @@
 package com.juansenen.Museum.task;
 
-import com.juansenen.Museum.model.ObjectsByID;
-import com.juansenen.Museum.service.ObjectsService;
+import com.juansenen.Museum.model.Departments;
 import javafx.concurrent.Task;
 
 import java.util.List;
 
-public class DataTask extends Task<List<ObjectsByID>> {
+public class DataTask extends Task<List<Departments>> {
 
     public DataTask() {
     }
     @Override
-    protected List<ObjectsByID> call() throws Exception {
-
-        ObjectsService objectsService = new ObjectsService();
+    protected List<Departments> call() throws Exception {
 
         return null;
     }

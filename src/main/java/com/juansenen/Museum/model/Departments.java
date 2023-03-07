@@ -5,13 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ObjectsID {
+public class Departments {
 
-    private int total;
-    private List<Integer> objectIDs;
+    private List<Departments> departments;
+    private int departmentId;
+    private String displayName;
 
 
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,11 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="dataTable" layoutX="52.0" layoutY="36.0" prefHeight="356.0" prefWidth="544.0">
+      <TableView fx:id="dataTable" layoutX="152.0" layoutY="41.0" prefHeight="351.0" prefWidth="444.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
+      <Label fx:id="labelTotal" layoutX="45.0" layoutY="41.0" prefHeight="17.0" prefWidth="59.0" text="Label" />
    </children>
 </AnchorPane>
