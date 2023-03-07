@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView layoutX="52.0" layoutY="36.0" prefHeight="356.0" prefWidth="544.0">
+      <TableView fx:id="dataTable" layoutX="52.0" layoutY="36.0" prefHeight="356.0" prefWidth="544.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
