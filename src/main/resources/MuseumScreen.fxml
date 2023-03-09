@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -14,6 +14,7 @@
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Label fx:id="labelTotal" layoutX="45.0" layoutY="41.0" prefHeight="17.0" prefWidth="59.0" text="Label" />
+      <Label fx:id="labelTotal" layoutX="152.0" layoutY="412.0" prefHeight="17.0" prefWidth="59.0" text="Label" />
+      <Text layoutX="14.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número total de Obras:" />
    </children>
 </AnchorPane>

@@ -1,15 +1,12 @@
 package com.juansenen.Museum.service;
 
-import com.juansenen.Museum.model.Departments;
-import io.reactivex.Observable;
+import com.juansenen.Museum.model.ObjectsId;
+import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 
 public interface MuseumMetropolitanAPI {
+    /** Llamada a la API el nº total de objetos */
+    @GET("objects")
+    Call<ObjectsId> loadAll();
 
-    @GET("departments")
-    Observable<Departments> loadAll();
-
-//    @GET("objects/{objectId}")
-//    Observable<ObjectsByID> loadOneObra(@Path("objectId") int objectId);
 }

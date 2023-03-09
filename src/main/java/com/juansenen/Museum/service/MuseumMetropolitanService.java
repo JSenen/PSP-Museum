@@ -2,13 +2,11 @@ package com.juansenen.Museum.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.juansenen.Museum.model.Departments;
-import io.reactivex.Observable;
+import com.juansenen.Museum.model.ObjectsId;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import java.io.IOException;
 
 public class MuseumMetropolitanService {
 
@@ -30,8 +28,9 @@ public class MuseumMetropolitanService {
         this.objectsIdAPI = retrofit.create(MuseumMetropolitanAPI.class);
     }
     //Metodo obtiene todas las Id de los objetos
-    public Observable<Departments> getAll() throws IOException {
+    public Call<ObjectsId> getAll() {
         return this.objectsIdAPI.loadAll();
+
     }
 
 }
